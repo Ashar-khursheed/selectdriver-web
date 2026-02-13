@@ -111,9 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div>
                     <h3 class="text-lg font-bold mb-6 text-white border-b-2 border-orange-action inline-block pb-1">Legal</h3>
                     <ul class="space-y-3 mb-6">
-                        <li><a href="#" class="text-gray-400 hover:text-orange-action transition-colors">Aviso Legal</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-orange-action transition-colors">Política de Privacidad</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-orange-action transition-colors">Cookies</a></li>
+                        <li><a href="legal-notice.html" class="text-gray-400 hover:text-orange-action transition-colors">Aviso Legal</a></li>
+                        <li><a href="privacy-policy.html" class="text-gray-400 hover:text-orange-action transition-colors">Política de Privacidad</a></li>
+                        <li><a href="cookies.html" class="text-gray-400 hover:text-orange-action transition-colors">Cookies</a></li>
                     </ul>
                     <div class="flex space-x-4">
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition-colors transform hover:-translate-y-1">
