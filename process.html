@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestro Proceso - SelectDriver</title>
+    <meta name="description"
+        content="Conozca paso a paso cómo seleccionamos y preparamos a los mejores conductores internacionales para su empresa.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#1E40AF',
+                        'orange-action': '#F97316',
+                        'gray-text': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <section class="bg-blue-primary text-white pt-28 pb-20 md:pt-40">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Metodología SelectDriver</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto fade-in">
+                Un proceso riguroso y transparente diseñado para garantizar el éxito en cada contratación internacional.
+            </p>
+        </div>
+    </section>
+
+    <!-- Phase 1 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 fade-in">
+                    <div class="inline-block bg-orange-100 text-orange-action rounded-full px-4 py-1 font-bold mb-4">
+                        Fase 1</div>
+                    <h2 class="text-3xl font-bold text-blue-primary mb-4">Análisis de Necesidades</h2>
+                    <p class="text-gray-600 mb-6">
+                        No enviamos currículums al azar. Estudiamos su operativa: tipo de rutas
+                        (nacional/internacional), tipo de vehículo, mercancía y cultura corporativa.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Definición del perfil ideal (Soft & Hard Skills).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Estudio de viabilidad y cronograma de incorporación.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center fade-in">
+                    <i class="fas fa-search-location text-9xl text-blue-100"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center fade-in">
+                    <i class="fas fa-users-cog text-9xl text-orange-100"></i>
+                </div>
+                <div class="fade-in">
+                    <div class="inline-block bg-blue-100 text-blue-primary rounded-full px-4 py-1 font-bold mb-4">Fase 2
+                    </div>
+                    <h2 class="text-3xl font-bold text-blue-primary mb-4">Reclutamiento y Selección</h2>
+                    <p class="text-gray-600 mb-6">
+                        Activamos nuestra red en Latinoamérica. Filtramos cientos de candidatos para presentarle solo a
+                        los finalistas aptos.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Verificación rigurosa de referencias laborales.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Validación de documentación original.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Entrevistas técnicas y psicotécnicas.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 fade-in">
+                    <div class="inline-block bg-orange-100 text-orange-action rounded-full px-4 py-1 font-bold mb-4">
+                        Fase 3</div>
+                    <h2 class="text-3xl font-bold text-blue-primary mb-4">Formación Especializada</h2>
+                    <p class="text-gray-600 mb-6">
+                        El paso que marca la diferencia. Antes de viajar, el conductor recibe formación específica para
+                        el mercado europeo.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Reglamento CE 561/2006 (Tiempos de conducción y descanso).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Uso correcto del Tacógrafo Digital.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-action mt-1 mr-3"></i>
+                            <span>Protocolos de seguridad y sujeción de carga.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="order-1 md:order-2 flex justify-center fade-in">
+                    <i class="fas fa-chalkboard-teacher text-9xl text-blue-100"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 4 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="flex justify-center fade-in">
+                    <i class="fas fa-plane-arrival text-9xl text-orange-100"></i>
+                </div>
+                <div class="fade-in">
+                    <div class="inline-block bg-blue-100 text-blue-primary rounded-full px-4 py-1 font-bold mb-4">Fase 4
+                    </div>
+                    <h2 class="text-3xl font-bold text-blue-primary mb-4">Logística y Aterrizaje</h2>
+                    <p class="text-gray-600 mb-6">
+                        Gestionamos el viaje y la llegada para que la integración sea inmediata y sin fricciones.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Coordinación de vuelos y recogida.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Acompañamiento en trámites administrativos (TIE, Seguridad Social).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-primary mt-1 mr-3"></i>
+                            <span>Seguimiento durante los primeros meses.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder" class="mt-auto"></div>
+
+    <script src="js/layout.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>

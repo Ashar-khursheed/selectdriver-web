@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Conductores - SelectDriver</title>
+    <meta name="description"
+        content="Oportunidades laborales para conductores profesionales en España. Requisitos, proceso de selección y recursos.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#1E40AF',
+                        'orange-action': '#F97316',
+                        'gray-text': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-900 to-blue-primary text-white pt-28 pb-20 md:pt-40">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Tu Futuro Profesional en Europa</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto fade-in">
+                Conectamos tu talento con las empresas de transporte más importantes de España. Proceso transparente,
+                legal y sin costes ocultos para el candidato.
+            </p>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-blue-primary text-center mb-12 fade-in">Requisitos Indispensables</h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in">
+                    <i class="fas fa-id-card text-3xl text-blue-primary mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Licencia Profesional</h3>
+                    <p class="text-gray-600">Carnet tipo C+E vigente con experiencia demostrable.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in">
+                    <i class="fas fa-history text-3xl text-blue-primary mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Experiencia</h3>
+                    <p class="text-gray-600">Mínimo 5 años de experiencia en transporte pesado.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in">
+                    <i class="fas fa-file-contract text-3xl text-blue-primary mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Pasaporte</h3>
+                    <p class="text-gray-600">Pasaporte válido con al menos 2 años de vigencia.</p>
+                </div>
+                <div class="p-6 bg-gray-50 rounded-xl border-l-4 border-orange-action fade-in">
+                    <i class="fas fa-user-check text-3xl text-blue-primary mb-4"></i>
+                    <h3 class="text-lg font-bold mb-2">Antecedentes</h3>
+                    <p class="text-gray-600">Certificado de antecedentes penales limpio y apostillado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selection Process -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-blue-primary text-center mb-12 fade-in">Nuestro Proceso de Selección</h2>
+
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-300"></div>
+
+                <!-- Step 1 -->
+                <div class="relative mb-12 md:mb-0 md:flex items-center justify-between fade-in group">
+                    <div class="md:w-5/12 order-1 md:text-right pr-6">
+                        <h3 class="text-xl font-bold text-blue-primary">1. Registro y Evaluación Inicial</h3>
+                        <p class="text-gray-600 mt-2">Completa el formulario y nuestro equipo revisará tu perfil para
+                            asegurar que cumples con los requisitos básicos.</p>
+                    </div>
+                    <div
+                        class="hidden md:flex items-center justify-center order-1 w-10 h-10 bg-orange-action rounded-full z-10 text-white font-bold ml-[-20px]">
+                        1</div>
+                    <div class="md:w-5/12 order-1 pl-6"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative mb-12 md:mb-0 md:flex items-center justify-between mt-8 fade-in group">
+                    <div class="md:w-5/12 order-1"></div>
+                    <div
+                        class="hidden md:flex items-center justify-center order-1 w-10 h-10 bg-blue-primary rounded-full z-10 text-white font-bold ml-[-20px]">
+                        2</div>
+                    <div class="md:w-5/12 order-1 pl-6">
+                        <h3 class="text-xl font-bold text-blue-primary">2. Entrevista Técnica</h3>
+                        <p class="text-gray-600 mt-2">Videollamada con nuestros expertos para validar conocimientos
+                            técnicos y experiencia en ruta.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative mb-12 md:mb-0 md:flex items-center justify-between mt-8 fade-in group">
+                    <div class="md:w-5/12 order-1 md:text-right pr-6">
+                        <h3 class="text-xl font-bold text-blue-primary">3. Formación y Documentación</h3>
+                        <p class="text-gray-600 mt-2">Inicio de trámites de visado y curso online obligatorio sobre
+                            normativa de transporte europea.</p>
+                    </div>
+                    <div
+                        class="hidden md:flex items-center justify-center order-1 w-10 h-10 bg-orange-action rounded-full z-10 text-white font-bold ml-[-20px]">
+                        3</div>
+                    <div class="md:w-5/12 order-1 pl-6"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Download -->
+    <section class="py-16 bg-blue-primary text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-8 fade-in">Recursos para Candidatos</h2>
+            <div class="flex flex-wrap justify-center gap-6 fade-in">
+                <a href="#"
+                    class="bg-white/10 hover:bg-white/20 transition px-6 py-4 rounded-lg flex items-center gap-3">
+                    <i class="fas fa-file-pdf text-2xl text-orange-400"></i>
+                    <div class="text-left">
+                        <p class="font-bold text-sm">Guía del Conductor</p>
+                        <p class="text-xs text-blue-200">PDF - 2.5MB</p>
+                    </div>
+                </a>
+                <a href="#"
+                    class="bg-white/10 hover:bg-white/20 transition px-6 py-4 rounded-lg flex items-center gap-3">
+                    <i class="fas fa-file-word text-2xl text-blue-400"></i>
+                    <div class="text-left">
+                        <p class="font-bold text-sm">Plantilla CV Europeo</p>
+                        <p class="text-xs text-blue-200">DOCX - 1.2MB</p>
+                    </div>
+                </a>
+                <a href="#"
+                    class="bg-white/10 hover:bg-white/20 transition px-6 py-4 rounded-lg flex items-center gap-3">
+                    <i class="fas fa-list-ul text-2xl text-green-400"></i>
+                    <div class="text-left">
+                        <p class="font-bold text-sm">Checklist Documentación</p>
+                        <p class="text-xs text-blue-200">PDF - 0.8MB</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evaluation Form -->
+    <section class="py-16 bg-white" id="driver-form">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-blue-primary mb-4 fade-in">Formulario de Evaluación Inicial</h2>
+                <p class="text-gray-600 fade-in">Da el primer paso hacia tu carrera en Europa</p>
+            </div>
+
+            <form onsubmit="handleFormSubmit(event, 'drivers')"
+                class="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-200 fade-in">
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Completo</label>
+                        <input type="text" name="fullName" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">País de Residencia</label>
+                        <input type="text" name="country" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" name="email" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono (con prefijo)</label>
+                        <input type="tel" name="phone" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Años de experiencia en C+E</label>
+                    <select name="experience"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                        <option>Menos de 2 años</option>
+                        <option>2 - 5 años</option>
+                        <option>5 - 10 años</option>
+                        <option>Más de 10 años</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Breve Resumen de Experiencia</label>
+                    <textarea name="summary" rows="4"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent"
+                        placeholder="Describe brevemente tus últimas rutas y tipos de camión..."></textarea>
+                </div>
+
+                <div class="flex items-start mb-6">
+                    <input type="checkbox" required class="mt-1 mr-2">
+                    <span class="text-sm text-gray-600">Acepto la política de privacidad y el tratamiento de mis datos
+                        para procesos de selección.</span>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-blue-primary text-white font-bold py-3 rounded-lg hover:bg-blue-800 transition-colors">
+                    Enviar Evaluación
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <div id="footer-placeholder" class="mt-auto"></div>
+
+    <script src="js/layout.js"></script>
+    <script src="js/form-handler.js"></script>
+    <script>
+        // Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+
+        // Form handling simulation
+        function handleSubmit(e) {
+            e.preventDefault();
+            // Connect with EmailJS/backend here
+            alert('Evaluación enviada correctamente. Revisaremos su perfil en breve.');
+            e.target.reset();
+        }
+    </script>
+</body>
+
+</html>

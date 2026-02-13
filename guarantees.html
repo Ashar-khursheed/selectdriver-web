@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garantías - SelectDriver</title>
+    <meta name="description"
+        content="Nuestras garantías de servicio: reemplazo sin coste, documentación verificada y soporte continuo.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'blue-primary': '#1E40AF',
+                        'orange-action': '#F97316',
+                        'gray-text': '#374151'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
+
+    <div id="header-placeholder"></div>
+
+    <section class="bg-blue-primary text-white pt-28 pb-20 md:pt-40">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl lg:text-5xl font-bold mb-6 fade-in">Compromiso SelectDriver</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto fade-in">
+                Nuestra reputación se basa en la confianza. Por eso, blindamos cada contratación con garantías reales.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Guarantee -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="bg-orange-50 border-l-8 border-orange-action rounded-r-lg p-8 md:p-12 shadow-lg mb-16 fade-in">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <i class="fas fa-sync-alt text-5xl text-orange-action flex-shrink-0"></i>
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Garantía de Reposición Gratuita</h2>
+                        <p class="text-lg text-gray-700 leading-relaxed">
+                            Entendemos que la adaptación es clave. Si durante los primeros <span
+                                class="font-bold text-blue-primary">90 días</span> el conductor no cumple con las
+                            expectativas o no se adapta a la empresa, activamos el protocolo de reposición inmediata sin
+                            ningún coste adicional para usted.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-3xl font-bold text-blue-primary text-center mb-12 fade-in">El Sello de Calidad SelectDriver
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition fade-in">
+                    <i class="fas fa-file-signature text-4xl text-blue-primary mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Legalidad 100%</h3>
+                    <p class="text-gray-600">
+                        Cada proceso cumple estrictamente con la normativa de extranjería española. Sin atajos.
+                        Garantizamos la tranquilidad legal de su empresa ante cualquier inspección.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition fade-in">
+                    <i class="fas fa-check-double text-4xl text-blue-primary mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Doble Verificación</h3>
+                    <p class="text-gray-600">
+                        Cada candidato pasa dos filtros: el de nuestro equipo en origen y el de nuestros consultores en
+                        España. Nada se deja al azar.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition fade-in">
+                    <i class="fas fa-headset text-4xl text-blue-primary mb-6"></i>
+                    <h3 class="text-xl font-bold mb-4">Soporte Continuo</h3>
+                    <p class="text-gray-600">
+                        No desaparecemos tras la firma. Seguimos monitorizando la integración del conductor para mediar
+                        y resolver cualquier incidencia cultural o laboral.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-blue-900 text-white text-center">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-6 fade-in">¿Hablamos de garantías?</h2>
+            <p class="text-xl mb-8 text-blue-200 fade-in">Déjenos demostrarle por qué somos el partner más fiable del
+                sector.</p>
+            <a href="contact.html"
+                class="inline-block bg-orange-action hover:bg-orange-600 text-white font-bold py-4 px-8 rounded-lg transition-colors fade-in">
+                Contactar Ahora
+            </a>
+        </div>
+    </section>
+
+    <div id="footer-placeholder" class="mt-auto"></div>
+
+    <script src="js/layout.js"></script>
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
