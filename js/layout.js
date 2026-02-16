@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="index.html" class="transition-transform hover:scale-105">
-                        <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-12 md:h-24 w-auto">
+                        <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-14 md:h-20 w-auto">
                     </a>
                 </div>
                 
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Logo y descripción -->
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-3 mb-6">
-                        <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-24 w-auto bg-white rounded p-1">
+                        <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-24 w-auto">
                     </div>
                     <p class="text-gray-400 mb-6 leading-relaxed max-w-sm">
                         Conectando excelencia profesional entre continentes. 
@@ -91,8 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     </p>
                     <div class="space-y-2 text-gray-400 text-sm">
                         <p class="flex items-center"><i class="fas fa-envelope w-6 text-orange-action"></i> info@selectdriver.es</p>
-                        <p class="flex items-center"><i class="fas fa-phone w-6 text-orange-action"></i> +34 900 000 000</p>
-                        <p class="flex items-center"><i class="fas fa-map-marker-alt w-6 text-orange-action"></i> Paseo de la Castellana, 123, Madrid</p>
+                        <p class="flex items-center"><i class="fas fa-phone w-6 text-orange-action"></i> +34 603293679</p>
+                        <p class="flex items-center"><i class="fas fa-map-marker-alt w-6 text-orange-action"></i> Toledo, España</p>
                     </div>
                 </div>
                 
