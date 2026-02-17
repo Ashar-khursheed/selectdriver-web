@@ -182,7 +182,12 @@ window.googleTranslateElementInit = function () {
     // Create hidden div for google translate
     var gtDiv = document.createElement('div');
     gtDiv.id = 'google_translate_element';
-    gtDiv.style.display = 'none';
+    // Use opacity/position instead of display:none so Google doesn't skip rendering
+    gtDiv.style.position = 'absolute';
+    gtDiv.style.opacity = '0';
+    gtDiv.style.pointerEvents = 'none';
+    gtDiv.style.height = '0';
+    gtDiv.style.overflow = 'hidden';
     document.body.appendChild(gtDiv);
 
     // Add styles to hide google bar
@@ -193,6 +198,7 @@ window.googleTranslateElementInit = function () {
         .goog-tooltip { display: none !important; }
         .goog-te-gadget { display: none !important; }
         .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+        #google_translate_element { display: none !important; } /* Fallback */
     `;
     document.head.appendChild(style);
 })();
@@ -203,8 +209,17 @@ window.changeLanguage = function (lang) {
         selectField.value = lang;
         selectField.dispatchEvent(new Event('change'));
     } else {
-        console.error("Google Translate dropdown not found. The script may not have loaded yet.");
-        // Optional: Alert user if testing locally and it fails
-        // alert("Translation service not ready. If you are running locally, Google Translate may be blocked.");
+        // Retry logic as the element might not be ready yet
+        console.warn("Google Translate dropdown not found. Determining retry...");
+        setTimeout(() => {
+            var retryField = document.querySelector('.goog-te-combo');
+            if (retryField) {
+                retryField.value = lang;
+                retryField.dispatchEvent(new Event('change'));
+            } else {
+                console.error("Translation service failed to initialize.");
+                alert("Translation service is initializing... please try again in a moment.");
+            }
+        }, 1000);
     }
 };
