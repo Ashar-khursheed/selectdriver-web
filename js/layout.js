@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition-colors transform hover:-translate-y-1">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-400 transition-colors transform hover:-translate-y-1">
-                            <i class="fab fa-twitter"></i>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-black transition-colors transform hover:-translate-y-1">
+                            <i class="fa-brands fa-x-twitter"></i>
                         </a>
                         <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-pink-600 transition-colors transform hover:-translate-y-1">
                             <i class="fab fa-instagram"></i>
