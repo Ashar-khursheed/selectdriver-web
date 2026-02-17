@@ -162,19 +162,14 @@ function toggleMobileMenu() {
     menu.classList.toggle('hidden');
 }
 
-// Google Translate Integration
+// Google Translate Integration (Cookie Method)
 window.googleTranslateElementInit = function () {
-    console.log("Google Translate: Callback invoked. Initializing widget...");
-    try {
-        new google.translate.TranslateElement({
-            pageLanguage: 'es',
-            includedLanguages: 'en,es',
-            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-        }, 'google_translate_element');
-        console.log("Google Translate: Widget created.");
-    } catch (e) {
-        console.error("Google Translate: Initialization error:", e);
-    }
+    new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
 };
 
 (function () {
@@ -182,14 +177,11 @@ window.googleTranslateElementInit = function () {
     if (!document.getElementById('google_translate_element')) {
         var gtDiv = document.createElement('div');
         gtDiv.id = 'google_translate_element';
-        // Position off-screen
-        gtDiv.style.position = 'absolute';
-        gtDiv.style.top = '-9999px';
-        gtDiv.style.left = '-9999px';
+        gtDiv.style.display = 'none'; // Can be hidden with cookie method
         document.body.appendChild(gtDiv);
     }
 
-    // Add styles to hide google bar and other elements
+    // Add styles to hide google bar
     var style = document.createElement('style');
     style.innerHTML = `
         .goog-te-banner-frame.skiptranslate { display: none !important; } 
@@ -197,47 +189,34 @@ window.googleTranslateElementInit = function () {
         .goog-tooltip { display: none !important; }
         .goog-te-gadget { display: none !important; }
         .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
-        #google_translate_element { display: block !important; }
     `;
     document.head.appendChild(style);
 
-    // Inject script with error handling
+    // Inject script
     var googleTranslateScript = document.createElement('script');
     googleTranslateScript.type = 'text/javascript';
     googleTranslateScript.async = true;
     googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-
-    googleTranslateScript.onload = function () {
-        console.log("Google Translate: Script loaded successfully.");
-    };
-
-    googleTranslateScript.onerror = function () {
-        console.error("Google Translate: Script failed to load. Check your internet connection or if 'translate.google.com' is blocked.");
-    };
-
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(googleTranslateScript);
 })();
 
 window.changeLanguage = function (lang) {
-    console.log("Attempting to change language to:", lang);
+    // Cookie method: Set googtrans cookie and reload
+    // Format: /FROM_LANG/TO_LANG
+    // Domain should be root path
 
-    // Polling function to wait for the element
-    const checkForDropdown = (attempts = 0) => {
-        var selectField = document.querySelector('.goog-te-combo');
-        if (selectField) {
-            console.log("Dropdown found. changing value...");
-            selectField.value = lang;
-            selectField.dispatchEvent(new Event('change'));
-        } else {
-            if (attempts < 10) { // Try for 5 seconds (10 * 500ms)
-                console.warn(`Dropdown not found (attempt ${attempts + 1}/10). Retrying...`);
-                setTimeout(() => checkForDropdown(attempts + 1), 500);
-            } else {
-                console.error("Translation service failed to initialize after multiple attempts.");
-                alert("The translation service could not be loaded. Please check your internet connection or try again later.");
-            }
-        }
-    };
+    // Clear existing cookies to avoid conflicts
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + window.location.hostname;
 
-    checkForDropdown();
+    if (lang === 'en') {
+        document.cookie = "googtrans=/es/en; path=/";
+        document.cookie = "googtrans=/es/en; path=/; domain=" + window.location.hostname; // For subdomain coverage
+    } else {
+        // For Spanish (original), we just clear the cookie or set to /es/es
+        document.cookie = "googtrans=/es/es; path=/";
+        document.cookie = "googtrans=/es/es; path=/; domain=" + window.location.hostname;
+    }
+
+    window.location.reload();
 };
