@@ -48,10 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     </a>
                 </div>
                 
-                <!-- CTA Mobile -->
-                <a href="contact.html" class="hidden md:inline-block bg-orange-action text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all hover:shadow-lg transform hover:-translate-y-0.5 font-bold">
-                    Empezar
-                </a>
+                <!-- Language & CTA Desktop -->
+                <div class="hidden md:flex items-center gap-4">
+                    <div class="flex bg-gray-100 rounded-lg p-1">
+                        <button onclick="changeLanguage('es')" class="px-2 py-1 rounded text-xs font-bold text-gray-600 hover:bg-white hover:text-blue-primary transition-all">ES</button>
+                        <button onclick="changeLanguage('en')" class="px-2 py-1 rounded text-xs font-bold text-gray-600 hover:bg-white hover:text-blue-primary transition-all">EN</button>
+                    </div>
+                    <a href="contact.html" class="bg-orange-action text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all hover:shadow-lg transform hover:-translate-y-0.5 font-bold">
+                        Empezar
+                    </a>
+                </div>
                 
                 <!-- Hamburger Menu -->
                 <button class="md:hidden text-gray-700 focus:outline-none" onclick="toggleMobileMenu()" aria-label="Menu">
@@ -155,3 +161,50 @@ function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     menu.classList.toggle('hidden');
 }
+
+// Google Translate Integration
+window.googleTranslateElementInit = function () {
+    new google.translate.TranslateElement({
+        pageLanguage: 'es',
+        includedLanguages: 'en,es',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+};
+
+(function () {
+    var googleTranslateScript = document.createElement('script');
+    googleTranslateScript.type = 'text/javascript';
+    googleTranslateScript.async = true;
+    googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(googleTranslateScript);
+
+    // Create hidden div for google translate
+    var gtDiv = document.createElement('div');
+    gtDiv.id = 'google_translate_element';
+    gtDiv.style.display = 'none';
+    document.body.appendChild(gtDiv);
+
+    // Add styles to hide google bar
+    var style = document.createElement('style');
+    style.innerHTML = `
+        .goog-te-banner-frame.skiptranslate { display: none !important; } 
+        body { top: 0px !important; } 
+        .goog-tooltip { display: none !important; }
+        .goog-te-gadget { display: none !important; }
+        .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+    `;
+    document.head.appendChild(style);
+})();
+
+window.changeLanguage = function (lang) {
+    var selectField = document.querySelector('.goog-te-combo');
+    if (selectField) {
+        selectField.value = lang;
+        selectField.dispatchEvent(new Event('change'));
+    } else {
+        console.error("Google Translate dropdown not found. The script may not have loaded yet.");
+        // Optional: Alert user if testing locally and it fails
+        // alert("Translation service not ready. If you are running locally, Google Translate may be blocked.");
+    }
+};
