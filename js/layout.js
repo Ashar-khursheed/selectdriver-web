@@ -164,25 +164,30 @@ function toggleMobileMenu() {
 
 // Google Translate Integration
 window.googleTranslateElementInit = function () {
-    console.log("Google Translate: Initializing...");
-    new google.translate.TranslateElement({
-        pageLanguage: 'es',
-        includedLanguages: 'en,es',
-        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-        autoDisplay: false
-    }, 'google_translate_element');
-    console.log("Google Translate: Initialized.");
+    console.log("Google Translate: Callback invoked. Initializing widget...");
+    try {
+        new google.translate.TranslateElement({
+            pageLanguage: 'es',
+            includedLanguages: 'en,es',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+        }, 'google_translate_element');
+        console.log("Google Translate: Widget created.");
+    } catch (e) {
+        console.error("Google Translate: Initialization error:", e);
+    }
 };
 
 (function () {
     // Create hidden div for google translate
-    var gtDiv = document.createElement('div');
-    gtDiv.id = 'google_translate_element';
-    // Use absolute positioning off-screen to ensure it renders but is not visible
-    gtDiv.style.position = 'absolute';
-    gtDiv.style.top = '-9999px';
-    gtDiv.style.left = '-9999px';
-    document.body.appendChild(gtDiv);
+    if (!document.getElementById('google_translate_element')) {
+        var gtDiv = document.createElement('div');
+        gtDiv.id = 'google_translate_element';
+        // Position off-screen
+        gtDiv.style.position = 'absolute';
+        gtDiv.style.top = '-9999px';
+        gtDiv.style.left = '-9999px';
+        document.body.appendChild(gtDiv);
+    }
 
     // Add styles to hide google bar and other elements
     var style = document.createElement('style');
@@ -192,15 +197,24 @@ window.googleTranslateElementInit = function () {
         .goog-tooltip { display: none !important; }
         .goog-te-gadget { display: none !important; }
         .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
-        #google_translate_element { display: block !important; } /* Ensure it's technically 'displayed' */
+        #google_translate_element { display: block !important; }
     `;
     document.head.appendChild(style);
 
-    // Inject script
+    // Inject script with error handling
     var googleTranslateScript = document.createElement('script');
     googleTranslateScript.type = 'text/javascript';
     googleTranslateScript.async = true;
     googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+
+    googleTranslateScript.onload = function () {
+        console.log("Google Translate: Script loaded successfully.");
+    };
+
+    googleTranslateScript.onerror = function () {
+        console.error("Google Translate: Script failed to load. Check your internet connection or if 'translate.google.com' is blocked.");
+    };
+
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(googleTranslateScript);
 })();
 
