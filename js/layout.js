@@ -164,33 +164,27 @@ function toggleMobileMenu() {
 
 // Google Translate Integration
 window.googleTranslateElementInit = function () {
+    console.log("Google Translate: Initializing...");
     new google.translate.TranslateElement({
         pageLanguage: 'es',
         includedLanguages: 'en,es',
         layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
         autoDisplay: false
     }, 'google_translate_element');
+    console.log("Google Translate: Initialized.");
 };
 
 (function () {
-    var googleTranslateScript = document.createElement('script');
-    googleTranslateScript.type = 'text/javascript';
-    googleTranslateScript.async = true;
-    googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(googleTranslateScript);
-
     // Create hidden div for google translate
     var gtDiv = document.createElement('div');
     gtDiv.id = 'google_translate_element';
-    // Use opacity/position instead of display:none so Google doesn't skip rendering
+    // Use absolute positioning off-screen to ensure it renders but is not visible
     gtDiv.style.position = 'absolute';
-    gtDiv.style.opacity = '0';
-    gtDiv.style.pointerEvents = 'none';
-    gtDiv.style.height = '0';
-    gtDiv.style.overflow = 'hidden';
+    gtDiv.style.top = '-9999px';
+    gtDiv.style.left = '-9999px';
     document.body.appendChild(gtDiv);
 
-    // Add styles to hide google bar
+    // Add styles to hide google bar and other elements
     var style = document.createElement('style');
     style.innerHTML = `
         .goog-te-banner-frame.skiptranslate { display: none !important; } 
@@ -198,28 +192,38 @@ window.googleTranslateElementInit = function () {
         .goog-tooltip { display: none !important; }
         .goog-te-gadget { display: none !important; }
         .goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
-        #google_translate_element { display: none !important; } /* Fallback */
+        #google_translate_element { display: block !important; } /* Ensure it's technically 'displayed' */
     `;
     document.head.appendChild(style);
+
+    // Inject script
+    var googleTranslateScript = document.createElement('script');
+    googleTranslateScript.type = 'text/javascript';
+    googleTranslateScript.async = true;
+    googleTranslateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(googleTranslateScript);
 })();
 
 window.changeLanguage = function (lang) {
-    var selectField = document.querySelector('.goog-te-combo');
-    if (selectField) {
-        selectField.value = lang;
-        selectField.dispatchEvent(new Event('change'));
-    } else {
-        // Retry logic as the element might not be ready yet
-        console.warn("Google Translate dropdown not found. Determining retry...");
-        setTimeout(() => {
-            var retryField = document.querySelector('.goog-te-combo');
-            if (retryField) {
-                retryField.value = lang;
-                retryField.dispatchEvent(new Event('change'));
+    console.log("Attempting to change language to:", lang);
+
+    // Polling function to wait for the element
+    const checkForDropdown = (attempts = 0) => {
+        var selectField = document.querySelector('.goog-te-combo');
+        if (selectField) {
+            console.log("Dropdown found. changing value...");
+            selectField.value = lang;
+            selectField.dispatchEvent(new Event('change'));
+        } else {
+            if (attempts < 10) { // Try for 5 seconds (10 * 500ms)
+                console.warn(`Dropdown not found (attempt ${attempts + 1}/10). Retrying...`);
+                setTimeout(() => checkForDropdown(attempts + 1), 500);
             } else {
-                console.error("Translation service failed to initialize.");
-                alert("Translation service is initializing... please try again in a moment.");
+                console.error("Translation service failed to initialize after multiple attempts.");
+                alert("The translation service could not be loaded. Please check your internet connection or try again later.");
             }
-        }, 1000);
-    }
+        }
+    };
+
+    checkForDropdown();
 };
