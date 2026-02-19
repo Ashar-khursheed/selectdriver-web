@@ -89,7 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Logo y descripción -->
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-3 mb-6">
-                        <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-32 w-auto">
+                        <a href="index.html" class="transition-opacity hover:opacity-80">
+                            <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-32 w-auto">
+                        </a>
                     </div>
                     <p class="text-gray-400 mb-6 leading-relaxed max-w-sm">
                         Conectando excelencia profesional entre continentes. 
