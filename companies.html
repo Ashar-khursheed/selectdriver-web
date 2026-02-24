@@ -42,6 +42,21 @@
             transform: translateY(-5px);
             transition: transform 0.3s ease;
         }
+
+        /* Form success/error messages */
+        #form-feedback {
+            display: none;
+        }
+
+        #form-feedback.show {
+            display: block;
+        }
+
+        /* Left panel decorative dots */
+        .panel-dots {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
     </style>
 </head>
 
@@ -60,12 +75,13 @@
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Nuestros Servicios Section -->
     <section class="py-16 bg-white">
         <div class="container mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-blue-primary mb-4 fade-in">Nuestros Servicios</h2>
-                <p class="text-gray-600 fade-in">Un enfoque integral para el reclutamiento internacional</p>
+                <p class="text-gray-600 max-w-3xl mx-auto fade-in">Una solución estructurada para incorporar conductores
+                    con mayor fiabilidad y hacer más eficiente su proceso de incorporación</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
@@ -86,20 +102,22 @@
                     </ul>
                 </div>
 
-                <!-- Service 2 -->
+                <!-- Service 2 — Approved exact content -->
                 <div class="p-8 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow fade-in">
                     <div
                         class="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mb-6 text-orange-action">
-                        <i class="fas fa-passport text-3xl"></i>
+                        <i class="fas fa-graduation-cap text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-blue-primary mb-3">Gestión de Visados</h3>
+                    <h3 class="text-xl font-bold text-blue-primary mb-3">Preparación previa y base informativa</h3>
                     <p class="text-gray-600 mb-4">
-                        Tramitación integral de toda la documentación necesaria para la incorporación legal del
-                        trabajador en España.
+                        Facilitamos candidatos con una base informativa en normativa europea de transporte y aspectos
+                        operativos clave, para favorecer una mejor preparación inicial antes de su incorporación.
                     </p>
                     <ul class="text-sm text-gray-500 space-y-2">
-                        <li><i class="fas fa-check text-orange-action mr-2"></i> Permisos de trabajo</li>
-                        <li><i class="fas fa-check text-orange-action mr-2"></i> Canje de licencias</li>
+                        <li><i class="fas fa-check text-orange-action mr-2"></i> Información sobre tacógrafo, tiempos de
+                            conducción y descanso</li>
+                        <li><i class="fas fa-check text-orange-action mr-2"></i> Base previa para una integración más
+                            segura y ordenada</li>
                     </ul>
                 </div>
 
@@ -123,127 +141,226 @@
         </div>
     </section>
 
-    <!-- Trust/Process Summary -->
+    <!-- Por qué confiar en SelectDriver -->
     <section class="py-16 bg-gray-50">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div class="fade-in">
-                <img src="https://images.unsplash.com/photo-1586864387967-d02ef85d93e8?auto=format&fit=crop&q=80&w=800"
-                    alt="Gestión de flotas" class="rounded-xl shadow-xl w-full">
-            </div>
-            <div class="fade-in">
-                <h2 class="text-3xl font-bold text-blue-primary mb-6">Por qué confiar en SelectDriver</h2>
-                <div class="space-y-6">
-                    <div class="flex">
-                        <div class="flex-shrink-0 mt-1">
-                            <i class="fas fa-shield-alt text-orange-action text-xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-bold text-gray-800">Garantía de Reposición</h4>
-                            <p class="text-gray-600">Si el candidato no supera el periodo de prueba, gestionamos su
-                                sustitución sin coste adicional.</p>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <div class="flex-shrink-0 mt-1">
-                            <i class="fas fa-hand-holding-usd text-orange-action text-xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-bold text-gray-800">Costes Transparentes</h4>
-                            <p class="text-gray-600">Sin sorpresas. Tarifas claras desde el primer momento y pago
-                                vinculado a hitos.</p>
-                        </div>
-                    </div>
-                    <div class="flex">
-                        <div class="flex-shrink-0 mt-1">
-                            <i class="fas fa-user-clock text-orange-action text-xl"></i>
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="text-lg font-bold text-gray-800">Rapidez de Gestión</h4>
-                            <p class="text-gray-600">Optimizamos los tiempos burocráticos para que tenga a sus
-                                conductores operativos lo antes posible.</p>
-                        </div>
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image -->
+                <div class="fade-in order-2 md:order-1">
+                    <div class="relative rounded-xl overflow-hidden shadow-xl">
+                        <img src="https://images.unsplash.com/photo-1521791055366-0d553872952f?auto=format&fit=crop&q=80&w=900"
+                            alt="Coordinación logística profesional en transporte de mercancías"
+                            class="w-full h-80 object-cover object-center">
+                        <!-- subtle overlay for depth -->
+                        <div class="absolute inset-0 bg-blue-primary/10 pointer-events-none"></div>
                     </div>
                 </div>
-                <div class="mt-8">
-                    <a href="process.html" class="text-blue-primary font-semibold hover:text-blue-800">
-                        Ver proceso detallado <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                <!-- Content -->
+                <div class="fade-in order-1 md:order-2">
+                    <h2 class="text-3xl font-bold text-blue-primary mb-3">Por qué confiar en SelectDriver</h2>
+                    <p class="text-gray-500 mb-8 text-base">Más seguridad para decidir, más claridad en el proceso y un
+                        enfoque alineado con la realidad operativa del transporte</p>
+                    <div class="space-y-6">
+                        <!-- Pillar 1 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-shield-alt text-orange-action text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-800">Garantía de Reposición</h4>
+                                <p class="text-gray-600">Si el candidato no supera el periodo de prueba, gestionamos su
+                                    sustitución sin coste adicional.</p>
+                            </div>
+                        </div>
+                        <!-- Pillar 2 -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-hand-holding-usd text-orange-action text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-800">Costes Transparentes</h4>
+                                <p class="text-gray-600">Sin sorpresas. Tarifas claras desde el primer momento y pago
+                                    vinculado a hitos.</p>
+                            </div>
+                        </div>
+                        <!-- Pillar 3 — Approved -->
+                        <div class="flex">
+                            <div class="flex-shrink-0 mt-1">
+                                <i class="fas fa-truck text-orange-action text-xl"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-bold text-gray-800">Conocimiento del sector y enfoque operativo
+                                </h4>
+                                <p class="text-gray-600">Entendemos la realidad del transporte de mercancías. Nuestro
+                                    proceso está diseñado desde dentro del sector, no desde fuera de él.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <a href="process.html"
+                            class="inline-flex items-center gap-2 bg-blue-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
+                            Conocer cómo trabajamos <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Form Section -->
+    <!-- Contact / Lead Form Section -->
     <section class="py-16 bg-white" id="contact-form">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <div class="bg-blue-primary rounded-2xl shadow-2xl overflow-hidden md:flex fade-in">
-                <!-- Info Side -->
-                <div class="bg-blue-800 p-8 md:w-1/3 text-white">
-                    <h3 class="text-2xl font-bold mb-6">Solicitar Información</h3>
-                    <p class="mb-6 text-blue-100">Déjenos sus datos y un consultor especializado se pondrá en contacto
-                        con usted en menos de 24 horas.</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-phone mr-3 text-orange-action"></i>
-                            <span>+34 603293679</span>
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-10 fade-in">
+                <h2 class="text-3xl font-bold text-blue-primary mb-3">Solicitar Información</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">Cuéntenos su necesidad y un consultor especializado se pondrá
+                    en contacto en menos de 24 horas hábiles.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-2xl overflow-hidden md:flex fade-in border border-gray-100">
+
+                <!-- Left Info Panel -->
+                <div
+                    class="bg-blue-primary panel-dots p-8 md:p-10 md:w-2/5 text-white flex flex-col justify-between relative overflow-hidden">
+                    <!-- Top content -->
+                    <div>
+                        <div
+                            class="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full mb-6">
+                            <i class="fas fa-medal text-orange-action text-sm"></i>
+                            <span class="text-sm font-semibold tracking-wide">SelectDriver Empresas</span>
                         </div>
-                        <div class="flex items-center">
-                            <i class="fas fa-envelope mr-3 text-orange-action"></i>
-                            <span>empresas@selectdriver.es</span>
+                        <h3 class="text-2xl font-bold mb-3 leading-snug">Hablemos sobre su necesidad de conductores</h3>
+                        <p class="text-blue-100 text-sm leading-relaxed mb-8">Cubrimos incorporaciones urgentes,
+                            planificaciones a medio plazo y cualquier consulta sobre nuestro proceso de selección.</p>
+
+                        <!-- Trust items -->
+                        <div class="space-y-5">
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-9 h-9 bg-orange-action/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fas fa-clock text-orange-action text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm">Respuesta en &lt; 24 horas hábiles</p>
+                                    <p class="text-blue-200 text-xs">Un consultor se pondrá en contacto</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-9 h-9 bg-orange-action/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fas fa-check-circle text-orange-action text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm">Proceso claro y sin compromisos</p>
+                                    <p class="text-blue-200 text-xs">Presupuesto sin sorpresas</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div
+                                    class="w-9 h-9 bg-orange-action/20 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                                    <i class="fas fa-shield-alt text-orange-action text-sm"></i>
+                                </div>
+                                <div>
+                                    <p class="font-semibold text-sm">Candidatos con garantía de reposición</p>
+                                    <p class="text-blue-200 text-xs">Sin coste adicional durante el periodo de prueba
+                                    </p>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- Bottom contact info -->
+                    <div class="mt-10 pt-6 border-t border-white/20 space-y-3">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-phone text-orange-action"></i>
+                            <a href="tel:+34603293679" class="text-sm hover:text-orange-action transition-colors">+34
+                                603 293 679</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-orange-action"></i>
+                            <a href="mailto:empresas@selectdriver.es"
+                                class="text-sm hover:text-orange-action transition-colors">empresas@selectdriver.es</a>
+                        </div>
+                    </div>
+
+                    <!-- Decorative element -->
+                    <div class="absolute -bottom-8 -right-8 w-36 h-36 bg-white/5 rounded-full border border-white/10">
+                    </div>
+                    <div class="absolute -bottom-16 -right-16 w-52 h-52 bg-white/5 rounded-full border border-white/10">
                     </div>
                 </div>
 
                 <!-- Form Side -->
-                <div class="p-8 md:w-2/3 bg-white">
-                    <form onsubmit="handleFormSubmit(event, 'companies')" class="space-y-6">
-                        <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-8 md:p-10 md:w-3/5 bg-white">
+                    <!-- Success message -->
+                    <div id="form-feedback" class="mb-6 rounded-xl p-5 border" role="alert"></div>
+
+                    <form id="companies-form" onsubmit="handleFormSubmit(event, 'companies')" class="space-y-5">
+                        <!-- Honeypot anti-spam field (hidden) -->
+                        <div style="display:none" aria-hidden="true">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-5">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Nombre Empresa</label>
-                                <input type="text" name="companyName" required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none transition-all">
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Nombre Empresa <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="companyName" required placeholder="Transportes Ejemplo S.L."
+                                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Persona de Contacto</label>
-                                <input type="text" name="contactName" required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none transition-all">
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Persona de Contacto <span
+                                        class="text-red-500">*</span></label>
+                                <input type="text" name="contactName" required placeholder="Nombre y apellido"
+                                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm">
                             </div>
                         </div>
 
-                        <div class="grid md:grid-cols-2 gap-6">
+                        <div class="grid md:grid-cols-2 gap-5">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Email Corporativo</label>
-                                <input type="email" name="email" required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none transition-all">
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Email Corporativo <span
+                                        class="text-red-500">*</span></label>
+                                <input type="email" name="email" required placeholder="contacto@empresa.es"
+                                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
-                                <input type="tel" name="phone" required
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none transition-all">
+                                <label class="block text-sm font-medium text-gray-700 mb-1.5">Teléfono <span
+                                        class="text-red-500">*</span></label>
+                                <input type="tel" name="phone" required placeholder="+34 6XX XXX XXX"
+                                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Necesidad Principal</label>
-                            <select name="need"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none transition-all">
-                                <option>Seleccionar...</option>
-                                <option>Incorporación inmediata (1-5 conductores)</option>
-                                <option>Planificación a medio plazo (>5 conductores)</option>
-                                <option>Información general</option>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Necesidad principal <span
+                                    class="text-red-500">*</span></label>
+                            <select name="need" required
+                                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm bg-white">
+                                <option value="" disabled selected>Seleccionar...</option>
+                                <option value="Cobertura urgente">Cobertura urgente</option>
+                                <option value="Planificación de incorporaciones">Planificación de incorporaciones
+                                </option>
+                                <option value="Información sobre el servicio">Información sobre el servicio</option>
+                                <option value="Solicitar reunión">Solicitar reunión</option>
+                                <option value="Otra consulta">Otra consulta</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-1">Mensaje / Detalles</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-1.5">Mensaje / Detalles</label>
                             <textarea name="message" rows="4"
-                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none transition-all"></textarea>
+                                placeholder="Descríbanos su situación y cualquier detalle relevante sobre su flota o necesidades..."
+                                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-primary focus:border-transparent outline-none transition-all text-sm resize-none"></textarea>
                         </div>
 
-                        <button type="submit"
-                            class="w-full bg-orange-action text-white font-bold py-3 rounded-lg hover:bg-orange-600 transition-colors">
-                            Enviar Solicitud
+                        <button type="submit" id="submit-btn"
+                            class="w-full bg-orange-action text-white font-bold py-3.5 rounded-lg hover:bg-orange-600 transition-colors text-base flex items-center justify-center gap-2">
+                            <span id="btn-text">Enviar Solicitud</span>
+                            <i class="fas fa-paper-plane text-sm opacity-80"></i>
                         </button>
+
+                        <p class="text-xs text-gray-400 text-center">Al enviar, acepta nuestra <a
+                                href="privacy-policy.html" class="underline hover:text-gray-600">Política de
+                                Privacidad</a>.</p>
                     </form>
                 </div>
             </div>
@@ -265,14 +382,6 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
-
-        // Form handling simulation
-        function handleSubmit(e) {
-            e.preventDefault();
-            // In a real scenario, integrate with EmailJS or backend here
-            alert('Gracias por su solicitud. Nos pondremos en contacto con usted en breve.');
-            e.target.reset();
-        }
     </script>
 </body>
 
