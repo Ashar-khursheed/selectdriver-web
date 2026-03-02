@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <button onclick="changeLanguage('en')" class="px-2 py-1 rounded text-xs font-bold text-gray-600 hover:bg-white hover:text-blue-primary transition-all">EN</button>
                     </div>
                     <a href="contact.html" class="bg-orange-action text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all hover:shadow-lg transform hover:-translate-y-0.5 font-bold">
-                        Empezar
+                        Contactar
                     </a>
                 </div>
                 

@@ -101,7 +101,7 @@ module.exports = async (req, res) => {
                         <p style="margin: 0; font-size: 14px; color: #1E40AF;">${needMsg}</p>
                     </div>
                     <p style="font-size: 13px; color: #6b7280;">Tiempo de respuesta habitual: <strong>menos de 24 horas hábiles</strong>.</p>
-                    <p style="font-size: 13px; color: #6b7280;">Si necesita contactarnos directamente: <a href="mailto:empresas@selectdriver.es" style="color: #1E40AF;">empresas@selectdriver.es</a> · <a href="tel:+34603293679" style="color: #1E40AF;">+34 603 293 679</a></p>
+                    <p style="font-size: 13px; color: #6b7280;">Si necesita contactarnos directamente: <a href="mailto:info@selectdriver.es" style="color: #1E40AF;">info@selectdriver.es</a> · <a href="tel:+34603293679" style="color: #1E40AF;">+34 603 293 679</a></p>
                 </div>
                 <p style="font-size: 12px; color: #9ca3af; margin-top: 16px; text-align: center;">SelectDriver — Reclutamiento Internacional de Conductores</p>
             </div>

@@ -75,10 +75,15 @@ async function handleFormSubmit(event, type) {
         const result = await response.json();
 
         if (response.ok) {
-            showFeedback(feedbackEl, 'success');
+            let successState = 'success';
+            if (type === 'drivers') {
+                successState = 'success-drivers';
+            }
+            showFeedback(feedbackEl, successState);
             form.reset();
             // Scroll feedback into view
             if (feedbackEl) {
+                feedbackEl.classList.remove('hidden');
                 feedbackEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         } else {
@@ -105,14 +110,21 @@ function showFeedback(el, state) {
             border: 'border-green-200',
             icon: 'fas fa-check-circle text-green-500',
             title: '¡Solicitud recibida correctamente!',
-            text: 'Hemos recibido su mensaje y un consultor especializado se pondrá en contacto con usted en menos de 24 horas hábiles. También recibirá un email de confirmación en la dirección indicada.'
+            text: 'Hemos recibido su solicitud. Un consultor se pondrá en contacto pronto.'
+        },
+        'success-drivers': {
+            bg: 'bg-green-50',
+            border: 'border-green-200',
+            icon: 'fas fa-check-circle text-green-500',
+            title: '¡Evaluación recibida!',
+            text: 'Recibido. Revisaremos tu información y te contactaremos por WhatsApp con el siguiente paso.'
         },
         'error': {
             bg: 'bg-red-50',
             border: 'border-red-200',
             icon: 'fas fa-exclamation-circle text-red-500',
             title: 'Error al enviar el mensaje',
-            text: 'Ha ocurrido un problema al procesar su solicitud. Por favor, inténtelo de nuevo o contáctenos directamente en <a href="mailto:empresas@selectdriver.es" class="underline font-medium">empresas@selectdriver.es</a>.'
+            text: 'Ha ocurrido un problema al procesar su solicitud. Por favor, inténtelo de nuevo o contáctenos directamente en <a href="mailto:info@selectdriver.es" class="underline font-medium">info@selectdriver.es</a>.'
         },
         'network-error': {
             bg: 'bg-yellow-50',
@@ -124,6 +136,7 @@ function showFeedback(el, state) {
     };
 
     const msg = messages[state] || messages['error'];
+    el.classList.remove('hidden');
     el.className = `mb-6 rounded-xl p-5 border ${msg.bg} ${msg.border} show`;
     el.innerHTML = `
         <div class="flex items-start gap-3">
