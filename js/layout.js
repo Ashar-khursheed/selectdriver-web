@@ -94,13 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         </a>
                     </div>
                     <p class="text-gray-400 mb-6 leading-relaxed max-w-sm">
-                        Conectando excelencia profesional entre continentes. 
-                        Líderes en reclutamiento y gestión de talento logístico internacional.
+                        Conectamos empresas de transporte en España con conductores profesionales previamente seleccionados.<br>
+                        <span class="text-gray-500 text-sm">SelectDriver &mdash; estabilidad operativa desde el inicio.</span>
                     </p>
                     <div class="space-y-2 text-gray-400 text-sm">
-                        <p class="flex items-center"><i class="fas fa-envelope w-6 text-orange-action"></i> info@selectdriver.es</p>
-                        <p class="flex items-center"><i class="fas fa-phone w-6 text-orange-action"></i> +34 603293679</p>
-                        <p class="flex items-center"><i class="fas fa-map-marker-alt w-6 text-orange-action"></i> Toledo, España</p>
+                        <p class="flex items-center"><i class="fas fa-envelope w-6 text-orange-action"></i> <a href="mailto:info@selectdriver.es" class="hover:text-orange-action transition-colors">info@selectdriver.es</a></p>
+                        <p class="flex items-center"><i class="fas fa-phone w-6 text-orange-action"></i> <a href="tel:+34603293679" class="hover:text-orange-action transition-colors">+34 603293679</a></p>
+                        <p class="flex items-center"><i class="fas fa-map-marker-alt w-6 text-orange-action"></i> Madrid, España (operativa remota)</p>
                     </div>
                 </div>
                 
@@ -124,14 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <li><a href="cookies.html" class="text-gray-400 hover:text-orange-action transition-colors">Cookies</a></li>
                     </ul>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition-colors transform hover:-translate-y-1">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition-colors transform hover:-translate-y-1" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-black transition-colors transform hover:-translate-y-1">
-                            <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-pink-600 transition-colors transform hover:-translate-y-1">
-                            <i class="fab fa-instagram"></i>
                         </a>
                     </div>
                 </div>
