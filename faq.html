@@ -81,15 +81,7 @@
     <section class="py-16 bg-white min-h-screen">
         <div class="container mx-auto px-6 max-w-4xl">
 
-            <!-- Search Bar -->
-            <div class="mb-12 relative fade-in">
-                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                    <i class="fas fa-search text-gray-400 text-lg"></i>
-                </div>
-                <input type="text" id="faqSearch" placeholder="Buscar preguntas clave (ej: tiempo, costes, visado)..."
-                    class="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 shadow-sm focus:ring-2 focus:ring-blue-primary focus:border-transparent transition-all text-lg"
-                    onkeyup="filterFAQs()">
-            </div>
+
 
             <!-- Categories Wrapper -->
             <div id="faqContainer">
@@ -248,14 +240,7 @@
                 </div>
             </div>
 
-            <!-- No results message -->
-            <div id="noResults" class="hidden text-center py-12">
-                <div class="inline-block p-4 rounded-full bg-gray-100 mb-4">
-                    <i class="fas fa-search text-3xl text-gray-400"></i>
-                </div>
-                <h3 class="text-xl font-bold text-gray-700">No encontramos coincidencias</h3>
-                <p class="text-gray-500">Intente con otras palabras clave o contáctenos directamente.</p>
-            </div>
+
 
         </div>
     </section>
@@ -274,36 +259,6 @@
                 });
             });
         });
-
-        function filterFAQs() {
-            const input = document.getElementById('faqSearch');
-            const filter = input.value.toUpperCase();
-            const container = document.getElementById('faqContainer');
-            const details = container.getElementsByTagName('details');
-            let visibleCount = 0;
-
-            for (let i = 0; i < details.length; i++) {
-                const summary = details[i].getElementsByTagName('summary')[0];
-                const content = details[i].getElementsByTagName('div')[0];
-                const txtValue = summary.textContent + content.textContent;
-
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    details[i].style.display = "";
-                    visibleCount++;
-                } else {
-                    details[i].style.display = "none";
-                }
-            }
-
-            const noResults = document.getElementById('noResults');
-            if (visibleCount === 0) {
-                noResults.classList.remove('hidden');
-                container.classList.add('hidden');
-            } else {
-                noResults.classList.add('hidden');
-                container.classList.remove('hidden');
-            }
-        }
     </script>
 
     <!-- Still have questions? -->
