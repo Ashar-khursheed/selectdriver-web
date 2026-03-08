@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="index.html" class="transition-transform hover:scale-105">
-                        <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-16 md:h-24 w-auto">
+                        <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-16 md:h-24 w-auto" style="image-rendering: -webkit-optimize-contrast; transform: translateZ(0);">
                     </a>
                 </div>
                 
@@ -50,8 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <!-- Language & CTA Desktop -->
                 <div class="hidden md:flex items-center gap-4">
-                    <div class="flex bg-gray-100 rounded-lg p-1">
+                    <div class="flex bg-gray-100 rounded-lg p-1 items-center notranslate" translate="no">
                         <button onclick="changeLanguage('es')" class="px-2 py-1 rounded text-xs font-bold text-gray-600 hover:bg-white hover:text-blue-primary transition-all">ES</button>
+                        <span class="text-gray-400 text-xs font-bold mx-1">|</span>
                         <button onclick="changeLanguage('en')" class="px-2 py-1 rounded text-xs font-bold text-gray-600 hover:bg-white hover:text-blue-primary transition-all">EN</button>
                     </div>
                     <a href="contact.html" class="bg-orange-action text-white px-6 py-2 rounded-full hover:bg-orange-600 transition-all hover:shadow-lg transform hover:-translate-y-0.5 font-bold">
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="md:col-span-2">
                     <div class="flex items-center space-x-3 mb-6">
                         <a href="index.html" class="transition-opacity hover:opacity-80">
-                            <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-32 w-auto">
+                            <img src="images/logo-selectdriver.png" alt="SelectDriver Logo" class="h-32 w-auto" style="image-rendering: -webkit-optimize-contrast; transform: translateZ(0);">
                         </a>
                     </div>
                     <p class="text-gray-400 mb-6 leading-relaxed max-w-sm">
@@ -124,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <li><a href="cookies.html" class="text-gray-400 hover:text-orange-action transition-colors">Cookies</a></li>
                     </ul>
                     <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition-colors transform hover:-translate-y-1" aria-label="LinkedIn">
+                        <a href="https://www.linkedin.com/company/selectdriver-espana" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition-colors transform hover:-translate-y-1" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
                     </div>
