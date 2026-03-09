@@ -128,6 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         <a href="https://www.linkedin.com/company/selectdriver-espana" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition-colors transform hover:-translate-y-1" aria-label="LinkedIn">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
+                        <a href="https://www.facebook.com/SelectDriver" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:bg-blue-600 transition-colors transform hover:-translate-y-1" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
                     </div>
                 </div>
             </div>
