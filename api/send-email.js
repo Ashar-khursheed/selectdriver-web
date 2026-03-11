@@ -22,13 +22,18 @@ module.exports = async (req, res) => {
 
     // Configure Transporter for handling any SMTP service
     const transporter = nodemailer.createTransport({
-        host: process.env.EMAIL_HOST,
+        host: process.env.EMAIL_HOST || 'smtp.office365.com',
         port: parseInt(process.env.EMAIL_PORT || '587'),
-        secure: process.env.EMAIL_PORT == 465,
+        secure: process.env.EMAIL_PORT == 465, // True for 465, false for 587
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS
-        }
+        },
+        tls: {
+            ciphers: 'SSLv3', // Often required for older SSL support on Office 365
+            rejectUnauthorized: false // Helps avoid local/intermediate certificate issues
+        },
+        requireTLS: true
     });
 
     // Generate timestamp
@@ -174,7 +179,11 @@ module.exports = async (req, res) => {
 
         res.status(200).json({ success: true, message: 'Email enviado correctamente' });
     } catch (error) {
-        console.error('Error sending email:', error);
-        res.status(500).json({ error: 'Error al enviar el email' });
+        console.error('Email sending failed with error:', error);
+        res.status(500).json({
+            error: 'Error al enviar el email',
+            details: error.message,
+            code: error.code
+        });
     }
 };
