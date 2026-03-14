@@ -258,10 +258,23 @@
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Breve Resumen de Experiencia</label>
-                    <textarea name="summary" rows="4"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent"
-                        placeholder="Describe brevemente tus últimas rutas y tipos de camión..."></textarea>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">¿La fecha de expedición de tu primer permiso de conducción C2 o C3 es anterior al 11 de septiembre de 2009?</label>
+                    <select name="licensePriorSept2009" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent bg-white">
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="Sí">Sí</option>
+                        <option value="No">No</option>
+                        <option value="No estoy seguro">No estoy seguro</option>
+                    </select>
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de expedición de tu primer permiso C2 o C3</label>
+                    <input type="date" name="licenseIssueDate" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent">
+                    <p class="mt-2 text-xs text-gray-500 italic font-medium">
+                        “Indica la fecha en la que se expidió por primera vez tu permiso C2 o C3. No corresponde a renovaciones, duplicados o recategorizaciones posteriores.”
+                    </p>
                 </div>
 
                 <div class="flex items-start mb-6">
