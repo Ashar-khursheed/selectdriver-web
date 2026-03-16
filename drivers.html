@@ -24,6 +24,7 @@
         }
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/css/intlTelInput.css">
     <style>
         html {
             scroll-behavior: smooth;
@@ -39,7 +40,18 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* intl-tel-input Tailwind Fix */
+        .iti {
+            width: 100%;
+            display: block;
+        }
+
+        .iti__country-list {
+            z-index: 50;
+        }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/intlTelInput.min.js"></script>
 </head>
 
 <body class="bg-gray-50 text-gray-text flex flex-col min-h-screen">
@@ -143,14 +155,15 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Teléfono (WhatsApp)</label>
-                        <input type="tel" name="phone" required placeholder="+54 9 11..."
+                        <input type="tel" id="driver-phone" name="phone_input" required
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
+                        <input type="hidden" name="phone">
                     </div>
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">¿Tienes licencia C2 o C3 por primera vez
-                        antes del 11 de septiembre de 2009?</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">¿La fecha de expedición de tu primer
+                        permiso de conducción C2 o C3 es anterior al 11 de septiembre de 2009?</label>
                     <select name="licensePriorSept2009" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none bg-white">
                         <option value="" disabled selected>Selecciona una opción...</option>
@@ -161,20 +174,24 @@
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de expedición de tu primera
-                        licencia C2 o C3</label>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Fecha de expedición de tu primer permiso
+                        C2 o C3</label>
                     <input type="date" name="licenseIssueDate" required
                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none">
-                    <p class="mt-2 text-xs text-gray-500 italic">Esta información es importante para verificar si
-                        necesitas realizar el curso CAP inicial o continuo en España. Indica la fecha en la que
-                        obtuviste por primera vez el permiso para camión rígido o articulado.</p>
+                    <p class="mt-2 text-xs text-gray-500 italic">Indica la fecha en la que se expidió por primera vez tu
+                        permiso C2 o C3. No corresponde a renovaciones, duplicados o recategorizaciones posteriores.</p>
                 </div>
 
                 <div class="mb-6">
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Experiencia profesional (Breve
-                        resumen)</label>
-                    <textarea name="experience" rows="4" required
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none"></textarea>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">¿Cuántos años de experiencia tienes
+                        conduciendo vehículos pesados articulados?</label>
+                    <select name="yearsExperience" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-action focus:border-transparent outline-none bg-white">
+                        <option value="" disabled selected>Selecciona una opción...</option>
+                        <option value="Menos de 5 años">Menos de 5 años</option>
+                        <option value="Entre 5 y 10 años">Entre 5 y 10 años</option>
+                        <option value="Más de 10 años">Más de 10 años</option>
+                    </select>
                 </div>
 
                 <!-- Anti-spam Math Captcha -->
@@ -229,7 +246,41 @@
         }, { threshold: 0.1 });
 
         document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // Initialize Intl-Tel-Input
+            const phoneInput = document.querySelector("#driver-phone");
+            if (phoneInput) {
+                const iti = window.intlTelInput(phoneInput, {
+                    initialCountry: "auto",
+                    geoIpLookup: callback => {
+                        fetch("https://ipapi.co/json")
+                            .then(res => res.json())
+                            .then(data => callback(data.country_code))
+                            .catch(() => callback("es"));
+                    },
+                    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/utils.js",
+                    autoPlaceholder: "aggressive",
+                    preferredCountries: ["es", "co", "ar", "mx", "pe", "cl"],
+                    separateDialCode: true
+                });
+
+                // Update hidden input with full number
+                const form = document.querySelector("#drivers-form");
+                const hiddenPhone = form.querySelector('input[name="phone"]');
+
+                const syncPhone = () => {
+                    hiddenPhone.value = iti.getNumber();
+                };
+
+                phoneInput.addEventListener('change', syncPhone);
+                phoneInput.addEventListener('keyup', syncPhone);
+                phoneInput.addEventListener('blur', syncPhone);
+
+                // Also sync before form submit (just in case)
+                form.addEventListener('submit', syncPhone);
+            }
         });
     </script>
 </body>
